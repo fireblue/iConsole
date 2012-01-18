@@ -15,7 +15,7 @@
 #define LOG_LEVEL_WARNING 3
 #define LOG_LEVEL_INFO 4
 
-#define CONSOLE_ENABLED 1 //suggest setting this is as a compiler macro instead
+// #define CONSOLE_ENABLED 1 //suggest setting this is as a compiler macro instead
 #define LOG_LEVEL LOG_LEVEL_INFO //minimum logging level
 #define ADD_CRASH_HANDLER 1 //add automatic crash logging
 #define USE_GOOGLE_STACK_TRACE 1 //use GTM functions to improve stack trace

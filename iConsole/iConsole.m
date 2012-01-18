@@ -395,7 +395,7 @@ void exceptionHandler(NSException *exception)
 	
 #else
 	
-	return nil
+	return nil;
 	
 #endif
 	
