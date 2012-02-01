@@ -145,6 +145,8 @@ void exceptionHandler(NSException *exception)
 		case UIInterfaceOrientationLandscapeRight:
 			angle = M_PI_2;
 			break;
+        case UIInterfaceOrientationPortrait:
+            break;
 	}
 	return CGAffineTransformMakeRotation(angle);
 }
