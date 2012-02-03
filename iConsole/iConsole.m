@@ -21,6 +21,7 @@
 
 static iConsole *sharedConsole = nil;
 
+static int historyOffset = 0;
 
 @interface iConsole()
 
@@ -29,7 +30,7 @@ static iConsole *sharedConsole = nil;
 @property (nonatomic, retain) UIButton *infoButton;
 @property (nonatomic, retain) NSMutableArray *log;
 @property (nonatomic, assign) BOOL animating;
-
+@property (nonatomic, retain) NSMutableArray *commandHistory;
 @end
 
 
@@ -41,6 +42,7 @@ static iConsole *sharedConsole = nil;
 @synthesize infoButton;
 @synthesize log;
 @synthesize animating;
+@synthesize commandHistory;
 
 
 #pragma mark -
@@ -295,6 +297,8 @@ void exceptionHandler(NSException *exception)
 	self.view.frame = bounds;
 	
 	[UIView commitAnimations];
+    
+    historyOffset = [commandHistory count] - 1;    
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification
@@ -331,6 +335,7 @@ void exceptionHandler(NSException *exception)
 	if (![textField.text isEqualToString:@""])
 	{
 		[iConsole log:textField.text];
+        [self.commandHistory addObject: textField.text];
 		[delegate handleConsoleCommand:textField.text];
 		textField.text = @"";
 	}
@@ -347,6 +352,32 @@ void exceptionHandler(NSException *exception)
 	return YES;
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)command
+{
+    if ([command length] < 1) {
+        return YES;
+    }
+
+    switch ([command characterAtIndex:0]) {
+        case '[':
+            // previous command
+            if (historyOffset >= 0) {
+                textField.text = [commandHistory objectAtIndex: historyOffset];
+                historyOffset--;
+            }
+            break;
+        case ']':
+            // next command
+            if (historyOffset+1 < [commandHistory count]) {
+                textField.text = [commandHistory objectAtIndex: historyOffset+1];
+                historyOffset++;
+            }
+            break;
+        default:
+            return YES;
+    }
+    return NO;
+}
 
 #pragma mark -
 #pragma mark UIActionSheetDelegate methods
@@ -448,6 +479,8 @@ void exceptionHandler(NSException *exception)
 
 - (void)viewDidLoad
 {
+    commandHistory = [[NSMutableArray alloc] init];
+    
 	self.view.backgroundColor = CONSOLE_BACKGROUND_COLOR;
 	self.view.autoresizesSubviews = YES;
 
