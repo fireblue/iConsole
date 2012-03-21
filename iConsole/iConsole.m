@@ -461,7 +461,8 @@ void exceptionHandler(NSException *exception)
 												 selector:@selector(savePreferences)
 													 name:UIApplicationWillTerminateNotification
 												   object:nil];
-		
+#endif
+
 		[[NSNotificationCenter defaultCenter] addObserver:self
 												 selector:@selector(rotateView:)
 													 name:UIApplicationDidChangeStatusBarOrientationNotification
@@ -471,8 +472,7 @@ void exceptionHandler(NSException *exception)
 												 selector:@selector(resizeView:)
 													 name:UIApplicationWillChangeStatusBarFrameNotification
 												   object:nil];
-#endif
-		
+
 	}
 	return self;
 }
@@ -485,7 +485,7 @@ void exceptionHandler(NSException *exception)
 	self.view.autoresizesSubviews = YES;
 
 	consoleView = [[UITextView alloc] initWithFrame:self.view.bounds];
-	consoleView.font = [UIFont fontWithName:@"Courier" size:12];
+	consoleView.font = [UIFont fontWithName:CONSOLE_FACE_NAME size:12];
 	consoleView.textColor = CONSOLE_TEXT_COLOR;
 	consoleView.backgroundColor = [UIColor clearColor];
 	consoleView.editable = NO;
@@ -507,7 +507,7 @@ void exceptionHandler(NSException *exception)
 																   self.view.frame.size.width - 15 - INFOBUTTON_WIDTH,
 																   EDITFIELD_HEIGHT)];
 		inputField.borderStyle = UITextBorderStyleRoundedRect;
-		inputField.font = [UIFont fontWithName:@"Courier" size:12];
+		inputField.font = [UIFont fontWithName:CONSOLE_FACE_NAME size:12];
 		inputField.autocapitalizationType = UITextAutocapitalizationTypeNone;
 		inputField.autocorrectionType = UITextAutocorrectionTypeNo;
 		inputField.returnKeyType = UIReturnKeyDone;
