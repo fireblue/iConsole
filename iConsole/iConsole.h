@@ -22,13 +22,11 @@
 //#define SAVE_LOG_TO_DISK 1 //save log between launches, required for crash logging
 #define MAX_LOG_ITEMS 1000
 
-#define SIMULATOR_CONSOLE_TOUCHES 2 //touches to show/hide console on simulator
-#define DEVICE_CONSOLE_TOUCHES 3 //touches to show/hide console on device
+#define SIMULATOR_CONSOLE_TOUCHES 0 //touches to show/hide console on simulator
+#define DEVICE_CONSOLE_TOUCHES 0 //touches to show/hide console on device
 
 #define SIMULATOR_SHAKE_TO_SHOW_CONSOLE 1 //show/hide console when simulating shake
-#ifndef DEVICE_SHAKE_TO_SHOW_CONSOLE
 #define DEVICE_SHAKE_TO_SHOW_CONSOLE 0 //show/hide console when device is shaken
-#endif
 
 #define CONSOLE_BRANDING @"Hi there!"
 #define CONSOLE_INPUT_PLACEHOLDER @"Enter command..."
