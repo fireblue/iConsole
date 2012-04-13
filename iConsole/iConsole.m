@@ -583,7 +583,7 @@ void exceptionHandler(NSException *exception)
 + (void)log:(NSString *)format, ...
 {
 
-#if LOG_LEVEL > LOG_LEVEL_NONE
+#if CONSOLE_CONSOLE_LOG_LEVEL > CONSOLE_CONSOLE_LOG_LEVEL_NONE
 	
 	va_list argList;
 	va_start(argList,format);
@@ -597,7 +597,7 @@ void exceptionHandler(NSException *exception)
 + (void)info:(NSString *)format, ...
 {
 	
-#if LOG_LEVEL >= LOG_LEVEL_INFO
+#if CONSOLE_LOG_LEVEL >= CONSOLE_LOG_LEVEL_INFO
 	
 	va_list argList;
 	va_start(argList, format);
@@ -611,7 +611,7 @@ void exceptionHandler(NSException *exception)
 + (void)warn:(NSString *)format, ...
 {
 	
-#if LOG_LEVEL >= LOG_LEVEL_WARNING
+#if CONSOLE_LOG_LEVEL >= CONSOLE_LOG_LEVEL_WARNING
 	
 	va_list argList;
 	va_start(argList, format);
@@ -625,7 +625,7 @@ void exceptionHandler(NSException *exception)
 + (void)error:(NSString *)format, ...
 {
 	
-#if LOG_LEVEL >= LOG_LEVEL_ERROR
+#if CONSOLE_LOG_LEVEL >= CONSOLE_LOG_LEVEL_ERROR
 	
 	va_list argList;
 	va_start(argList, format);
@@ -639,7 +639,7 @@ void exceptionHandler(NSException *exception)
 + (void)crash:(NSString *)format, ...
 {
 	
-#if LOG_LEVEL >= LOG_LEVEL_CRASH
+#if CONSOLE_LOG_LEVEL >= CONSOLE_LOG_LEVEL_CRASH
 	
 	va_list argList;
 	va_start(argList, format);
