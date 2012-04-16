@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 #define CONSOLE_CONSOLE_LOG_LEVEL_NONE 0
 #define CONSOLE_CONSOLE_LOG_LEVEL_CRASH 1
 #define CONSOLE_CONSOLE_LOG_LEVEL_ERROR 2
@@ -26,7 +25,7 @@
 #define DEVICE_CONSOLE_TOUCHES 0 //touches to show/hide console on device
 
 #define SIMULATOR_SHAKE_TO_SHOW_CONSOLE 1 //show/hide console when simulating shake
-#define DEVICE_SHAKE_TO_SHOW_CONSOLE 0 //show/hide console when device is shaken
+#define DEVICE_SHAKE_TO_SHOW_CONSOLE 1 //show/hide console when device is shaken
 
 #define CONSOLE_BRANDING @"Hi there!"
 #define CONSOLE_INPUT_PLACEHOLDER @"Enter command..."
