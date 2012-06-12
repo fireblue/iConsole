@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 
 
-#define LOG_LEVEL_NONE 0
-#define LOG_LEVEL_CRASH 1
-#define LOG_LEVEL_ERROR 2
-#define LOG_LEVEL_WARNING 3
-#define LOG_LEVEL_INFO 4
+#define ICONSOLE_LOG_LEVEL_NONE 0
+#define ICONSOLE_LOG_LEVEL_CRASH 1
+#define ICONSOLE_LOG_LEVEL_ERROR 2
+#define ICONSOLE_LOG_LEVEL_WARNING 3
+#define ICONSOLE_LOG_LEVEL_INFO 4
 
 // #define CONSOLE_ENABLED 1 //suggest setting this is as a compiler macro instead
-#define LOG_LEVEL LOG_LEVEL_INFO //minimum logging level
+#define LOG_LEVEL ICONSOLE_LOG_LEVEL_INFO //minimum logging level
 //#define ADD_CRASH_HANDLER 1 //add automatic crash logging
 //#define USE_GOOGLE_STACK_TRACE 1 //use GTM functions to improve stack trace
 //#define SAVE_LOG_TO_DISK 1 //save log between launches, required for crash logging
