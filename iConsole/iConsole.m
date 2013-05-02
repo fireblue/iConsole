@@ -30,6 +30,8 @@
 //  3. This notice may not be removed or altered from any source distribution.
 //
 
+#if CONSOLE_ENABLED
+
 #import "iConsole.h"
 #import <stdarg.h>
 #import <string.h> 
@@ -780,3 +782,5 @@ void exceptionHandler(NSException *exception)
 }
 
 @end
+
+#endif

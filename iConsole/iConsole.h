@@ -30,6 +30,8 @@
 //  3. This notice may not be removed or altered from any source distribution.
 //
 
+#if CONSOLE_ENABLED
+
 #import <UIKit/UIKit.h>
 
 
@@ -42,8 +44,8 @@
 #endif
 
 
-#define ICONSOLE_ADD_EXCEPTION_HANDLER 1 //add automatic crash logging
-#define ICONSOLE_USE_GOOGLE_STACK_TRACE 1 //use GTM functions to improve stack trace
+#define ICONSOLE_ADD_EXCEPTION_HANDLER 0 //add automatic crash logging
+#define ICONSOLE_USE_GOOGLE_STACK_TRACE 0 //use GTM functions to improve stack trace
 
 
 typedef enum
@@ -114,3 +116,5 @@ iConsoleLogLevel;
 @interface iConsoleWindow : UIWindow
 
 @end
+
+#endif
