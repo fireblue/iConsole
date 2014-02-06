@@ -30,8 +30,6 @@
 //  3. This notice may not be removed or altered from any source distribution.
 //
 
-#if CONSOLE_ENABLED
-
 #import "iConsole.h"
 #import <stdarg.h>
 #import <string.h> 
@@ -111,7 +109,7 @@ void exceptionHandler(NSException *exception)
 - (void)setConsoleText
 {
 	NSString *text = _infoString;
-	int touches = (TARGET_IPHONE_SIMULATOR ? _simulatorTouchesToShow: _deviceTouchesToShow);
+	int touches = (TARGET_IPHONE_SIMULATOR ? _simulatorTouchesToShow: (int)_deviceTouchesToShow);
 	if (touches > 0 && touches < 11)
 	{
 		text = [text stringByAppendingFormat:@"\nSwipe down with %i finger%@ to hide console", touches, (touches != 1)? @"s": @""];
@@ -782,5 +780,3 @@ void exceptionHandler(NSException *exception)
 }
 
 @end
-
-#endif
